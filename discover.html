@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#171526">
+<title>Discover — UmaTune</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark" data-page="discover">
+<div class="app-shell">
+<aside class="sidebar">
+<a class="brand" href="index.html"><span class="brand-mark">♪</span><span>uma<span class="brand-accent">tune</span></span></a>
+<div class="side-label">MENU</div><nav class="main-nav">
+<a class="nav-link" href="index.html"><span>⌂</span> Home</a><a class="nav-link active" href="discover.html"><span>⌕</span> Discover</a><a class="nav-link" href="library.html"><span>▤</span> Your library</a><a class="nav-link" href="now-playing.html"><span>♫</span> Now Playing</a></nav>
+<div class="side-label playlist-label">YOUR COLLECTION</div>
+<a class="collection" href="library.html?favorites=1"><span class="collection-icon pink">♥</span><span>Liked songs</span><small id="liked-count">0</small></a>
+<a class="collection" href="library.html"><span class="collection-icon violet">♫</span><span>My playlist</span></a>
+<div class="sidebar-bottom"><div class="mini-promo"><div class="promo-orb">♪</div><strong>Your Uma Musume<br>soundtrack corner.</strong><p>All your favorite race-day vibes in one place.</p></div>
+<div class="profile-row"><div class="avatar">U</div><div><b>Uma fan</b><small>Music listener</small></div><span class="more">•••</span></div></div>
+</aside>
+<main class="main-content">
+<header class="topbar"><div class="mobile-brand"><span class="brand-mark">♪</span> umatune</div><div class="top-actions" style="margin-left:auto"><span class="greeting">Temukan lagu barumu ✦</span><button class="icon-button theme-toggle" id="theme-toggle" aria-label="Switch theme" title="Ganti tema">☼</button><button class="avatar top-avatar" aria-label="Menu profil">U</button></div></header>
+<section class="disc-hero">
+<div class="eyebrow">DISCOVER</div>
+<h1>Mau dengar apa hari ini?</h1>
+<div class="disc-search" role="search"><span class="search-icon">⌕</span><input id="search-input" type="search" placeholder="Judul, karakter, album, atau mood…" autocomplete="off" aria-label="Cari lagu"><button id="disc-clear" hidden aria-label="Hapus pencarian">✕</button><button class="primary-button" id="disc-random">♪ Putar acak</button></div>
+<div class="disc-recent" id="disc-recent" hidden></div>
+</section>
+<section class="disc-filters" aria-label="Filter">
+<div class="chip-row"><span>MOOD</span><div class="chip-row" id="disc-moods"></div><select id="sort-select" aria-label="Urutkan"><option value="rel">Paling cocok</option><option value="title">Judul A–Z</option><option value="duration">Durasi</option><option value="liked">Disukai dulu</option></select></div>
+<div class="chip-row"><span>KARAKTER</span><div class="chip-row" id="disc-chars"></div></div>
+</section>
+<section class="auto-info" aria-label="Info lagu otomatis">
+<div class="ai-text"><b>Info lagu otomatis</b><small>Ambil cover, durasi, dan preview 30 detik dari iTunes, plus lirik tersinkron dari LRCLIB. Lirik hanya untuk pemakaian pribadi.</small></div>
+<div class="ai-actions"><label class="chip"><input type="checkbox" id="auto-lyr" checked> Ambil lirik</label><button class="primary-button" id="auto-info" data-act="auto-info">Cari info otomatis</button><button class="chip" data-act="auto-reset">Hapus info</button></div>
+<div id="auto-log" aria-live="polite"></div>
+</section>
+<section class="disc-results"><div class="section-heading"><div><h2>Hasil pencarian</h2></div><div class="library-count" id="disc-count">0 lagu</div></div><div class="disc-grid" id="disc-grid"></div></section>
+<footer><span>♪ umatune</span><span>Fan-made music interface concept · Not affiliated with Cygames</span></footer>
+</main>
+</div>
+<div class="player-bar">
+<div class="now-playing"><div class="cover-placeholder" id="current-cover">♪</div><div class="now-meta"><b id="current-title">Choose a track</b><small id="current-artist">Uma Musume playlist</small></div><button class="like-button" id="current-like" aria-label="Like current song">♡</button></div>
+<div class="player-center"><div class="player-controls"><button class="control-button" id="shuffle-button" title="Shuffle">⤨</button><button class="control-button" id="prev-button" title="Previous">|◀</button><button class="play-button" id="play-button" title="Play">▶</button><button class="control-button" id="next-button" title="Next">▶|</button><button class="control-button" id="repeat-button" title="Repeat">↻</button></div><div class="progress-row"><span id="elapsed">0:00</span><input type="range" id="seek" min="0" max="100" value="0" aria-label="Seek track"><span id="duration">0:00</span></div></div>
+<div class="player-extra"><span class="volume-icon">◖))</span><input type="range" id="volume" min="0" max="1" step="0.01" value="0.75" aria-label="Volume"><button class="queue-button" title="Queue">☷</button></div></div>
+<audio id="audio-player" preload="metadata"></audio><div class="toast" id="toast" role="status"></div><script src="script.js"></script><script src="extras.js"></script><script src="v3.js"></script>
+</body></html>
